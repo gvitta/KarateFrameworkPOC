@@ -1,7 +1,7 @@
 Feature: Amazon Search Page Scenarios
 Background:
-#  * configure driver = { type: 'chrome', addOptions: ["--remote-allow-origins=*"] }
-  * configure driver = { type: 'msedge', webDriverSession: { capabilities: { browserName: 'edge' } } }
+  * configure driver = { type: 'chrome', headless: true, addOptions: ["--remote-allow-origins=*"] }
+#  * configure driver = { type: 'msedge', webDriverSession: { capabilities: { browserName: 'edge' } } }
 #  * configure driver = { type: 'safaridriver', showDriverLog: true }
   * url amazonUrlBase
   * url githubUrlBase
