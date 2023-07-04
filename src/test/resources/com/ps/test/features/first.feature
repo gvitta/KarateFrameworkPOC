@@ -1,6 +1,6 @@
 Feature: Amazon Search Page Scenarios
 Background:
-  * configure driver = { type: 'chrome', headless: true, addOptions: ['--remote-allow-origins=*','--headless=new'] }
+  * configure driver = { type: 'chrome', headless: true, addOptions: ['--no-sandbox', '--headless=new', '--remote-allow-origins=*', '--disable-extensions', '--disable-dev-shm-usage', '--disable-notifications'],showDriverLog: true }
 #  * configure driver = { type: 'msedge', webDriverSession: { capabilities: { browserName: 'edge' } } }
 #  * configure driver = { type: 'safaridriver', showDriverLog: true }
   * url amazonUrlBase
@@ -9,6 +9,7 @@ Background:
 
 
   Scenario: Customer Search for project in the site
+    * print driver
     Given driver amazonUrlBase
     And input(amazonLocators.AllPage.searchBoxInput, 'PS5')
     When submit().click(amazonLocators.AllPage.searchBoxBtn)
