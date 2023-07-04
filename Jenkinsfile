@@ -1,7 +1,7 @@
 pipeline  {
     agent any
     parameters{
-        string(name: 'TAGS',defaultValue: "cypress/integration/**/**", description: "Enter the script path you want to execute" )
+        string(name: 'TAGS',defaultValue: "~@ignore", description: "Enter the script path you want to execute" )
         choice(name: 'BROWSER',choices: ['chrome','firefox','headless'],description: "Where you want to execute")
 
     }
@@ -11,7 +11,7 @@ pipeline  {
         stage('Testing'){
             steps{
 
-                sh "gradle test -Dkarate.options=\"--tags ~ignore\""
+                sh "gradle test -Dkarate.options=\"--tags ~@ignore\""
                 sh "Execution completed"
             }
         }
