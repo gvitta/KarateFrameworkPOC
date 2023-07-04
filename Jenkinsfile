@@ -6,7 +6,7 @@ pipeline  {
 
 
     }
-
+stages{
     node {
         withGradle {
             sh './gradlew build'
@@ -23,7 +23,7 @@ pipeline  {
                   }
             }
         }
-
+}
 
     post{
         always{
