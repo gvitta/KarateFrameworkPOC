@@ -24,14 +24,7 @@ pipeline  {
     post{
         always{
             archiveArtifacts artifacts: 'build/karate-reports/*.json', followSymlinks: false
-            cucumber buildStatus: 'UNSTABLE',
-                failedFeaturesNumber: 1,
-                failedScenariosNumber: 1,
-                skippedStepsNumber: 1,
-                failedStepsNumber: 1,
-                fileIncludePattern: 'build/karate-reports/*.json',
-                sortingMethod: 'ALPHABETICAL',
-                trendsLimit: 100
+
         }
     }
 }
