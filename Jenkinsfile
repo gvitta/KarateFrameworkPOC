@@ -7,26 +7,24 @@ pipeline  {
 
     }
 
-    stages{
     node {
-      withGradle {
-        sh './gradlew build'
-      }
-    }
+        withGradle {
+            sh './gradlew build'
+         }
+
 
         stage('Testing'){
-            steps{
 
-                sh "gradle test -Dkarate.options=\"--tags ~@ignore\""
-                sh "Execution completed"
+                  withGradle {
+                       sh """
+                          "./gradlew test"
+                       """
+                       sh "Execution completed"
+                  }
             }
         }
-        stage('Deploying'){
-             steps{
-                echo "Deploying the Application"
-             }
-        }
-    }
+
+
     post{
         always{
             archiveArtifacts artifacts: 'build/karate-reports/*.json', followSymlinks: false
