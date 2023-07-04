@@ -1,0 +1,6 @@
+{
+"AllPage": {
+  "searchBoxInput": "input[id=twotabsearchtextbox]",
+  "searchBoxBtn": "input[id=nav-search-submit-button]"
+}
+}
