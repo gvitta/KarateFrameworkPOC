@@ -7,10 +7,6 @@ pipeline  {
 
     }
 stages{
-    node {
-        withGradle {
-            sh './gradlew build'
-         }
 
 
         stage('Testing'){
